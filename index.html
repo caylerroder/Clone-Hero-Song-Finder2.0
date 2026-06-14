@@ -398,6 +398,9 @@ body {
 
 .result-arrow { color: var(--faint); font-size: 16px; flex-shrink: 0; }
 
+.result-charts-list { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.result-chart-row { display: flex; align-items: center; gap: 12px; padding: 4px 0; border-top: 1px solid var(--border); }
+.result-chart-row:first-child { border-top: none; padding-top: 0; }
 .result-chart { flex: 1.4; min-width: 0; }
 .result-chart-title { font-size: 13px; font-weight: 600; color: var(--green); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .result-chart-artist { font-size: 11px; color: rgba(0,229,160,0.6); margin-top: 2px; }
@@ -474,7 +477,7 @@ body {
       <div class="connected-bar">
         <div class="user-badge">
           <div class="user-avatar" id="userAvatar"></div>
-          <span class="user-name" id="userName">Ã¢ÂÂ</span>
+          <span class="user-name" id="userName">ÃÂ¢ÃÂÃÂ</span>
         </div>
         <span class="status-text ok" id="connectedStatus"></span>
         <button class="btn-logout" onclick="logout()">Log out</button>
@@ -515,7 +518,7 @@ body {
     </div>
 
     <div class="stats-grid">
-      <div class="stat"><div class="stat-label">Total</div><div class="stat-val muted" id="statTotal">Ã¢ÂÂ</div></div>
+      <div class="stat"><div class="stat-label">Total</div><div class="stat-val muted" id="statTotal">ÃÂ¢ÃÂÃÂ</div></div>
       <div class="stat"><div class="stat-label">Scanned</div><div class="stat-val purple" id="statScanned">0</div></div>
       <div class="stat"><div class="stat-label">Found</div><div class="stat-val green" id="statFound">0</div></div>
       <div class="stat"><div class="stat-label">Not Found</div><div class="stat-val muted" id="statMissed">0</div></div>
@@ -602,7 +605,7 @@ async function handleCallback() {
   const params = new URLSearchParams(location.search);
   const code = params.get('code');
   const error = params.get('error');
-  if (error) { showLoginError('Spotify denied access Ã¢ÂÂ try again.'); return; }
+  if (error) { showLoginError('Spotify denied access ÃÂ¢ÃÂÃÂ try again.'); return; }
   if (!code) return;
 
   history.replaceState({}, '', location.pathname);
@@ -665,7 +668,7 @@ function logout() {
 // -- SPOTIFY API --
 async function spotifyGet(url) {
   const res = await fetch(url, { headers: { Authorization: 'Bearer ' + token } });
-  if (res.status === 401) { logout(); throw new Error('Session expired Ã¢ÂÂ please log in again'); }
+  if (res.status === 401) { logout(); throw new Error('Session expired ÃÂ¢ÃÂÃÂ please log in again'); }
   if (!res.ok) throw new Error('Spotify error ' + res.status);
   return res.json();
 }
@@ -832,14 +835,14 @@ async function startScan() {
     currentIndex = i;
     const song = SONGS[i];
     const pct = ((i+1)/TOTAL*100).toFixed(1);
-    document.getElementById('progressLabel').textContent = `"${song.title}" Ã¢ÂÂ ${song.artist}`;
+    document.getElementById('progressLabel').textContent = `"${song.title}" ÃÂ¢ÃÂÃÂ ${song.artist}`;
     document.getElementById('progressPct').textContent = pct + '%';
     document.getElementById('progressFill').style.width = pct + '%';
     document.getElementById('statScanned').textContent = i + 1;
 
     const results = await searchChorus(song.title, song.artist);
     const match = results ? bestMatch(results, song.title, song.artist) : null;
-    const entry = { title: song.title, artist: song.artist, hit: !!match, match, count: results?.length || 0 };
+    const entry = { title: song.title, artist: song.artist, hit: !!match, match, charts: results || [], count: results?.length || 0 };
     allResults.push(entry);
 
     if (match) {
@@ -857,11 +860,11 @@ async function startScan() {
   if (!shouldStop) {
     currentIndex = TOTAL;
     const found = allResults.filter(r => r.hit).length;
-    document.getElementById('progressLabel').textContent = `Done Ã¢ÂÂ ${found} of ${TOTAL} songs have charts on Clone Hero`;
+    document.getElementById('progressLabel').textContent = `Done ÃÂ¢ÃÂÃÂ ${found} of ${TOTAL} songs have charts on Clone Hero`;
     document.getElementById('progressPct').textContent = '100%';
     document.getElementById('progressFill').style.width = '100%';
   } else {
-    document.getElementById('progressLabel').textContent = 'Paused Ã¢ÂÂ press Start Scan to continue';
+    document.getElementById('progressLabel').textContent = 'Paused ÃÂ¢ÃÂÃÂ press Start Scan to continue';
     document.getElementById('btnStart').disabled = false;
   }
 
@@ -911,13 +914,17 @@ function renderResults() {
           <div class="result-title">${esc(r.title)}</div>
           <div class="result-artist">${esc(r.artist)}</div>
         </div>
-        <div class="result-arrow">&#8594;</div>
-        <div class="result-chart">
-          <div class="result-chart-title">${esc(ct || r.title)}</div>
-          <div class="result-chart-artist">${esc(ca || r.artist)}</div>
-          <div class="result-chart-meta">${ch ? '&#127928; ' + esc(ch) : ''}${r.count > 1 ? (ch ? ' &middot; ' : '') + r.count + ' versions' : ''}</div>
+        <div class="result-arrow">&#8595;</div>
+        <div class="result-charts-list">
+          ${(r.charts && r.charts.length > 0 ? r.charts : (r.match ? [r.match] : [])).map(c => {
+            const ct2 = c.name || c.songName || c.song || c.title || r.title;
+            const ca2 = c.artist || c.artistName || c.band || r.artist;
+            const ch2 = c.charter || (c.charters && c.charters[0] && c.charters[0].name) || '';
+            const h2 = c.md5 || '';
+            const l2 = h2 ? 'https://enchor.us/chart/' + h2 : 'https://enchor.us/?query=' + encodeURIComponent(r.title + ' ' + r.artist);
+            return '<div class="result-chart-row"><div class="result-chart"><div class="result-chart-title">' + esc(ct2) + '</div><div class="result-chart-artist">' + esc(ca2) + '</div><div class="result-chart-meta">' + (ch2 ? '&#127928; ' + esc(ch2) : '') + '</div></div><a class="result-link" href="' + l2 + '" target="_blank">View &#8594;</a></div>';
+          }).join('')}
         </div>
-        <a class="result-link" href="${link}" target="_blank">View &#8594;</a>
       </div>`;
     return `
       <div class="result-row miss">
