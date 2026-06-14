@@ -474,7 +474,7 @@ body {
       <div class="connected-bar">
         <div class="user-badge">
           <div class="user-avatar" id="userAvatar"></div>
-          <span class="user-name" id="userName">—</span>
+          <span class="user-name" id="userName">â</span>
         </div>
         <span class="status-text ok" id="connectedStatus"></span>
         <button class="btn-logout" onclick="logout()">Log out</button>
@@ -515,7 +515,7 @@ body {
     </div>
 
     <div class="stats-grid">
-      <div class="stat"><div class="stat-label">Total</div><div class="stat-val muted" id="statTotal">—</div></div>
+      <div class="stat"><div class="stat-label">Total</div><div class="stat-val muted" id="statTotal">â</div></div>
       <div class="stat"><div class="stat-label">Scanned</div><div class="stat-val purple" id="statScanned">0</div></div>
       <div class="stat"><div class="stat-label">Found</div><div class="stat-val green" id="statFound">0</div></div>
       <div class="stat"><div class="stat-label">Not Found</div><div class="stat-val muted" id="statMissed">0</div></div>
@@ -602,7 +602,7 @@ async function handleCallback() {
   const params = new URLSearchParams(location.search);
   const code = params.get('code');
   const error = params.get('error');
-  if (error) { showLoginError('Spotify denied access — try again.'); return; }
+  if (error) { showLoginError('Spotify denied access â try again.'); return; }
   if (!code) return;
 
   history.replaceState({}, '', location.pathname);
@@ -648,7 +648,7 @@ async function onLoggedIn() {
     avatar.textContent = (me.display_name || me.id || '?')[0].toUpperCase();
   }
   document.getElementById('userName').textContent = me.display_name || me.id;
-  document.getElementById('connectedStatus').textContent = '&#10003; Connected';
+  document.getElementById('connectedStatus').innerHTML = '&#10003; Connected';
   document.getElementById('panelSource').style.display = 'block';
   loadPlaylists();
 }
@@ -665,7 +665,7 @@ function logout() {
 // -- SPOTIFY API --
 async function spotifyGet(url) {
   const res = await fetch(url, { headers: { Authorization: 'Bearer ' + token } });
-  if (res.status === 401) { logout(); throw new Error('Session expired — please log in again'); }
+  if (res.status === 401) { logout(); throw new Error('Session expired â please log in again'); }
   if (!res.ok) throw new Error('Spotify error ' + res.status);
   return res.json();
 }
@@ -688,7 +688,7 @@ async function loadPlaylists() {
           : `<div class="playlist-img-placeholder">&#127925;</div>`}
         <div class="playlist-meta">
           <div class="playlist-name">${esc(p.name)}</div>
-          <div class="playlist-count">${p.tracks.total} songs</div>
+          <div class="playlist-count">${p.tracks?.total ?? '?'} songs</div>
         </div>
       </div>`).join('');
   } catch(e) {
@@ -832,7 +832,7 @@ async function startScan() {
     currentIndex = i;
     const song = SONGS[i];
     const pct = ((i+1)/TOTAL*100).toFixed(1);
-    document.getElementById('progressLabel').textContent = `"${song.title}" — ${song.artist}`;
+    document.getElementById('progressLabel').textContent = `"${song.title}" â ${song.artist}`;
     document.getElementById('progressPct').textContent = pct + '%';
     document.getElementById('progressFill').style.width = pct + '%';
     document.getElementById('statScanned').textContent = i + 1;
@@ -857,11 +857,11 @@ async function startScan() {
   if (!shouldStop) {
     currentIndex = TOTAL;
     const found = allResults.filter(r => r.hit).length;
-    document.getElementById('progressLabel').textContent = `Done — ${found} of ${TOTAL} songs have charts on Clone Hero`;
+    document.getElementById('progressLabel').textContent = `Done â ${found} of ${TOTAL} songs have charts on Clone Hero`;
     document.getElementById('progressPct').textContent = '100%';
     document.getElementById('progressFill').style.width = '100%';
   } else {
-    document.getElementById('progressLabel').textContent = 'Paused — press Start Scan to continue';
+    document.getElementById('progressLabel').textContent = 'Paused â press Start Scan to continue';
     document.getElementById('btnStart').disabled = false;
   }
 
