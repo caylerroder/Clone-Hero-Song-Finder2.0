@@ -33,7 +33,7 @@ body {
   min-height: 100vh;
 }
 
-/* Ã¢ÂÂÃ¢ÂÂ HERO Ã¢ÂÂÃ¢ÂÂ */
+/* -- HERO -- */
 .hero {
   padding: 60px 40px 48px;
   max-width: 1100px;
@@ -69,10 +69,10 @@ body {
   max-width: 480px;
 }
 
-/* Ã¢ÂÂÃ¢ÂÂ MAIN Ã¢ÂÂÃ¢ÂÂ */
+/* -- MAIN -- */
 .main { max-width: 1100px; margin: 0 auto; padding: 0 40px 60px; }
 
-/* Ã¢ÂÂÃ¢ÂÂ PANELS Ã¢ÂÂÃ¢ÂÂ */
+/* -- PANELS -- */
 .panel {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -100,7 +100,7 @@ body {
   flex-shrink: 0;
 }
 
-/* Ã¢ÂÂÃ¢ÂÂ SPOTIFY LOGIN Ã¢ÂÂÃ¢ÂÂ */
+/* -- SPOTIFY LOGIN -- */
 .auth-flow { display: flex; flex-direction: column; gap: 20px; }
 .auth-state { display: none; }
 .auth-state.active { display: block; }
@@ -165,7 +165,7 @@ body {
 }
 .btn-logout:hover { border-color: var(--red); color: var(--red); }
 
-/* Ã¢ÂÂÃ¢ÂÂ SOURCE PICKER Ã¢ÂÂÃ¢ÂÂ */
+/* -- SOURCE PICKER -- */
 .source-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
 .source-btn {
   padding: 9px 18px;
@@ -225,7 +225,7 @@ body {
 
 .load-songs-bar { margin-top: 14px; display: flex; align-items: center; gap: 12px; }
 
-/* Ã¢ÂÂÃ¢ÂÂ BUTTONS Ã¢ÂÂÃ¢ÂÂ */
+/* -- BUTTONS -- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -254,7 +254,7 @@ body {
 .btn-export { background: var(--green-dim); border: 1px solid rgba(0,229,160,0.3); color: var(--green); }
 .btn-export:not(:disabled):hover { background: rgba(0,229,160,0.15); }
 
-/* Ã¢ÂÂÃ¢ÂÂ STATS Ã¢ÂÂÃ¢ÂÂ */
+/* -- STATS -- */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -287,7 +287,7 @@ body {
 .stat-val.red { color: var(--red); }
 .stat-val.muted { color: var(--muted); }
 
-/* Ã¢ÂÂÃ¢ÂÂ PROGRESS Ã¢ÂÂÃ¢ÂÂ */
+/* -- PROGRESS -- */
 .progress-wrap { margin-bottom: 16px; }
 .progress-track {
   height: 4px;
@@ -318,7 +318,7 @@ body {
   font-size: 11px;
 }
 
-/* Ã¢ÂÂÃ¢ÂÂ SCAN CONTROLS Ã¢ÂÂÃ¢ÂÂ */
+/* -- SCAN CONTROLS -- */
 .scan-controls {
   display: flex;
   align-items: center;
@@ -328,7 +328,7 @@ body {
 }
 .scan-hint { font-size: 12px; color: var(--muted); margin-left: auto; }
 
-/* Ã¢ÂÂÃ¢ÂÂ FILTER BAR Ã¢ÂÂÃ¢ÂÂ */
+/* -- FILTER BAR -- */
 .filter-row {
   display: flex;
   align-items: center;
@@ -366,7 +366,7 @@ body {
 .search-box-wrap input:focus { border-color: var(--purple); }
 .search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 13px; pointer-events: none; color: var(--muted); }
 
-/* Ã¢ÂÂÃ¢ÂÂ RESULTS Ã¢ÂÂÃ¢ÂÂ */
+/* -- RESULTS -- */
 .results-area { display: flex; flex-direction: column; gap: 8px; }
 .result-row {
   background: var(--surface2);
@@ -420,7 +420,7 @@ body {
 }
 .result-link:hover { background: rgba(0,229,160,0.18); }
 
-/* Ã¢ÂÂÃ¢ÂÂ EMPTY STATE Ã¢ÂÂÃ¢ÂÂ */
+/* -- EMPTY STATE -- */
 .empty {
   text-align: center;
   padding: 64px 32px;
@@ -430,7 +430,7 @@ body {
 .empty h2 { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
 .empty p { font-size: 13px; line-height: 1.6; max-width: 360px; margin: 0 auto; }
 
-/* Ã¢ÂÂÃ¢ÂÂ STATUS TEXT Ã¢ÂÂÃ¢ÂÂ */
+/* -- STATUS TEXT -- */
 .status-text { font-size: 13px; color: var(--muted); }
 .status-text.ok { color: var(--green); }
 .status-text.err { color: var(--red); }
@@ -446,7 +446,7 @@ body {
 
 <div class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Chorus Encore ÃÂ· Song Finder</div>
+    <div class="hero-eyebrow">Chorus Encore &middot; Song Finder</div>
     <h1>Your Spotify.<br><span>On Clone Hero.</span></h1>
     <p class="hero-sub">Connect Spotify, pick your liked songs or any playlist, and instantly see which ones have charts you can download and play.</p>
   </div>
@@ -474,7 +474,7 @@ body {
       <div class="connected-bar">
         <div class="user-badge">
           <div class="user-avatar" id="userAvatar"></div>
-          <span class="user-name" id="userName">Ã¢ÂÂ</span>
+          <span class="user-name" id="userName">—</span>
         </div>
         <span class="status-text ok" id="connectedStatus"></span>
         <button class="btn-logout" onclick="logout()">Log out</button>
@@ -487,13 +487,13 @@ body {
     <div class="panel-title">Choose Source</div>
 
     <div class="source-row">
-      <button class="source-btn active" id="srcLiked" onclick="setSource('liked')">Ã¢ÂÂ¥ Liked Songs</button>
+      <button class="source-btn active" id="srcLiked" onclick="setSource('liked')">&#9829; Liked Songs</button>
       <button class="source-btn" id="srcPlaylist" onclick="setSource('playlist')">Playlists</button>
     </div>
 
     <div class="playlist-select-wrap" id="playlistWrap">
       <div class="playlist-grid" id="playlistGrid">
-        <div class="empty"><div class="empty-icon">Ã¢ÂÂ³</div><p>Loading playlistsÃ¢ÂÂ¦</p></div>
+        <div class="empty"><div class="empty-icon">&#8635;</div><p>Loading playlists...</p></div>
       </div>
     </div>
 
@@ -508,14 +508,14 @@ body {
     <div class="panel-title">Scan Results</div>
 
     <div class="scan-controls">
-      <button class="btn btn-green" id="btnStart" onclick="startScan()">Ã¢ÂÂ¶ Start Scan</button>
-      <button class="btn btn-stop" id="btnStop" onclick="stopScan()" disabled>Ã¢ÂÂ¹ Pause</button>
-      <button class="btn btn-export" id="btnExport" onclick="exportCSV()">Ã¢ÂÂ Export Matches</button>
-      <span class="scan-hint">~1 song/sec ÃÂ· pause &amp; resume anytime</span>
+      <button class="btn btn-green" id="btnStart" onclick="startScan()">&#9654; Start Scan</button>
+      <button class="btn btn-stop" id="btnStop" onclick="stopScan()" disabled>&#9209; Pause</button>
+      <button class="btn btn-export" id="btnExport" onclick="exportCSV()">&#8595; Export Matches</button>
+      <span class="scan-hint">~1 song/sec &middot; pause &amp; resume anytime</span>
     </div>
 
     <div class="stats-grid">
-      <div class="stat"><div class="stat-label">Total</div><div class="stat-val muted" id="statTotal">Ã¢ÂÂ</div></div>
+      <div class="stat"><div class="stat-label">Total</div><div class="stat-val muted" id="statTotal">—</div></div>
       <div class="stat"><div class="stat-label">Scanned</div><div class="stat-val purple" id="statScanned">0</div></div>
       <div class="stat"><div class="stat-label">Found</div><div class="stat-val green" id="statFound">0</div></div>
       <div class="stat"><div class="stat-label">Not Found</div><div class="stat-val muted" id="statMissed">0</div></div>
@@ -532,17 +532,17 @@ body {
 
     <div class="filter-row">
       <button class="filter-chip active" onclick="setFilter('all',this)">All</button>
-      <button class="filter-chip" onclick="setFilter('hit',this)">Ã¢ÂÂ Found</button>
-      <button class="filter-chip" onclick="setFilter('miss',this)">Ã¢ÂÂ Not Found</button>
+      <button class="filter-chip" onclick="setFilter('hit',this)">&#10003; Found</button>
+      <button class="filter-chip" onclick="setFilter('miss',this)">&#10007; Not Found</button>
       <div class="search-box-wrap">
-        <span class="search-icon">Ã°ÂÂÂ</span>
-        <input type="text" id="searchBox" placeholder="SearchÃ¢ÂÂ¦" oninput="renderResults()">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="searchBox" placeholder="Search..." oninput="renderResults()">
       </div>
     </div>
 
     <div id="resultsList">
       <div class="empty">
-        <div class="empty-icon">Ã°ÂÂÂ¸</div>
+        <div class="empty-icon">&#127928;</div>
         <h2>Nothing scanned yet</h2>
         <p>Hit Start Scan and results will appear here in real time as each song is checked.</p>
       </div>
@@ -552,11 +552,11 @@ body {
 </div>
 
 <script>
-// Ã¢ÂÂÃ¢ÂÂ CONFIG Ã¢ÂÂÃ¢ÂÂ
+// -- CONFIG --
 const CLIENT_ID = '54c20930a4144b018101648ee2fcc965';
 const REDIRECT_URI = location.href.split('?')[0].split('#')[0];
 
-// Ã¢ÂÂÃ¢ÂÂ STATE Ã¢ÂÂÃ¢ÂÂ
+// -- STATE --
 let token = null;
 let SONGS = [];
 let TOTAL = 0;
@@ -570,7 +570,7 @@ let selectedSource = 'liked';
 let selectedPlaylistId = null;
 let workingEndpoint = null;
 
-// Ã¢ÂÂÃ¢ÂÂ PKCE Ã¢ÂÂÃ¢ÂÂ
+// -- PKCE --
 async function sha256(plain) {
   const enc = new TextEncoder();
   return crypto.subtle.digest('SHA-256', enc.encode(plain));
@@ -602,7 +602,7 @@ async function handleCallback() {
   const params = new URLSearchParams(location.search);
   const code = params.get('code');
   const error = params.get('error');
-  if (error) { showLoginError('Spotify denied access Ã¢ÂÂ try again.'); return; }
+  if (error) { showLoginError('Spotify denied access — try again.'); return; }
   if (!code) return;
 
   history.replaceState({}, '', location.pathname);
@@ -633,7 +633,7 @@ async function handleCallback() {
 }
 
 function showLoginError(msg) {
-  document.getElementById('loginStatus').textContent = 'Ã¢ÂÂ ' + msg;
+  document.getElementById('loginStatus').textContent = '&#10007; ' + msg;
   document.getElementById('loginStatus').className = 'status-text err';
 }
 
@@ -648,7 +648,7 @@ async function onLoggedIn() {
     avatar.textContent = (me.display_name || me.id || '?')[0].toUpperCase();
   }
   document.getElementById('userName').textContent = me.display_name || me.id;
-  document.getElementById('connectedStatus').textContent = 'Ã¢ÂÂ Connected';
+  document.getElementById('connectedStatus').textContent = '&#10003; Connected';
   document.getElementById('panelSource').style.display = 'block';
   loadPlaylists();
 }
@@ -662,17 +662,17 @@ function logout() {
   document.getElementById('panelScan').style.display = 'none';
 }
 
-// Ã¢ÂÂÃ¢ÂÂ SPOTIFY API Ã¢ÂÂÃ¢ÂÂ
+// -- SPOTIFY API --
 async function spotifyGet(url) {
   const res = await fetch(url, { headers: { Authorization: 'Bearer ' + token } });
-  if (res.status === 401) { logout(); throw new Error('Session expired Ã¢ÂÂ please log in again'); }
+  if (res.status === 401) { logout(); throw new Error('Session expired — please log in again'); }
   if (!res.ok) throw new Error('Spotify error ' + res.status);
   return res.json();
 }
 
 async function loadPlaylists() {
   const grid = document.getElementById('playlistGrid');
-  grid.innerHTML = '<div class="empty"><p>Loading playlistsÃ¢ÂÂ¦</p></div>';
+  grid.innerHTML = '<div class="empty"><p>Loading playlists...</p></div>';
   try {
     let playlists = [];
     let url = 'https://api.spotify.com/v1/me/playlists?limit=50';
@@ -685,7 +685,7 @@ async function loadPlaylists() {
       <div class="playlist-card" id="pl_${p.id}" onclick="selectPlaylist('${p.id}')">
         ${p.images && p.images[0]
           ? `<img class="playlist-img" src="${p.images[0].url}" alt="">`
-          : `<div class="playlist-img-placeholder">Ã°ÂÂÂµ</div>`}
+          : `<div class="playlist-img-placeholder">&#127925;</div>`}
         <div class="playlist-meta">
           <div class="playlist-name">${esc(p.name)}</div>
           <div class="playlist-count">${p.tracks.total} songs</div>
@@ -714,7 +714,7 @@ async function loadSongs() {
   const btnLoad = document.getElementById('btnLoad');
   const statusEl = document.getElementById('loadStatus');
   btnLoad.disabled = true;
-  statusEl.textContent = 'Loading songsÃ¢ÂÂ¦';
+  statusEl.textContent = 'Loading songs...';
   statusEl.className = 'status-text loading';
 
   try {
@@ -727,7 +727,7 @@ async function loadSongs() {
         for (const item of data.items) {
           if (item.track) songs.push({ title: item.track.name, artist: item.track.artists.map(a => a.name).join(', ') });
         }
-        statusEl.textContent = `LoadingÃ¢ÂÂ¦ ${songs.length} songs`;
+        statusEl.textContent = `Loading... ${songs.length} songs`;
         url = data.next;
       }
     } else {
@@ -738,7 +738,7 @@ async function loadSongs() {
         for (const item of data.items) {
           if (item.track && item.track.name) songs.push({ title: item.track.name, artist: item.track.artists.map(a => a.name).join(', ') });
         }
-        statusEl.textContent = `LoadingÃ¢ÂÂ¦ ${songs.length} songs`;
+        statusEl.textContent = `Loading... ${songs.length} songs`;
         url = data.next;
       }
     }
@@ -757,7 +757,7 @@ async function loadSongs() {
     document.getElementById('progressFill').style.width = '0%';
     document.getElementById('progressPct').textContent = '0%';
     document.getElementById('progressLabel').textContent = 'Press Start Scan to begin';
-    document.getElementById('resultsList').innerHTML = `<div class="empty"><div class="empty-icon">Ã°ÂÂÂ¸</div><h2>Ready</h2><p>${TOTAL.toLocaleString()} songs queued. Hit Start Scan.</p></div>`;
+    document.getElementById('resultsList').innerHTML = `<div class="empty"><div class="empty-icon">&#127928;</div><h2>Ready</h2><p>${TOTAL.toLocaleString()} songs queued. Hit Start Scan.</p></div>`;
     document.getElementById('panelScan').style.display = 'block';
     document.getElementById('panelScan').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
@@ -768,12 +768,12 @@ async function loadSongs() {
   btnLoad.disabled = false;
 }
 
-// Ã¢ÂÂÃ¢ÂÂ FUZZY MATCH Ã¢ÂÂÃ¢ÂÂ
+// -- FUZZY MATCH --
 function norm(s) {
   if (!s) return '';
   return s.toLowerCase()
     .replace(/\s*[\(\[]?(feat\.?|ft\.?|with|featuring)[^)\]]*[)\]]?/gi, '')
-    .replace(/\s*[-Ã¢ÂÂ]?\s*(official\s*)?(remix|edit|mix|remaster(ed)?|extended|acoustic|live|radio|original|bonus|track|version|deluxe|alt\.?|alternate)[^$]*/gi, '')
+    .replace(/\s*[-\u2013]?\s*(official\s*)?(remix|edit|mix|remaster(ed)?|extended|acoustic|live|radio|original|bonus|track|version|deluxe|alt\.?|alternate)[^$]*/gi, '')
     .replace(/\s*\([^)]*\)/g, '').replace(/\s*\[[^\]]*\]/g, '')
     .replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim();
 }
@@ -801,7 +801,7 @@ function bestMatch(results, title, artist) {
   return bestScore >= 0.45 ? best : null;
 }
 
-// Ã¢ÂÂÃ¢ÂÂ CHORUS ENCORE API Ã¢ÂÂÃ¢ÂÂ
+// -- CHORUS ENCORE API --
 async function searchChorus(title, artist) {
   const search = title + ' ' + artist;
   try {
@@ -819,7 +819,7 @@ async function searchChorus(title, artist) {
   }
 }
 
-// Ã¢ÂÂÃ¢ÂÂ SCAN Ã¢ÂÂÃ¢ÂÂ
+// -- SCAN --
 async function startScan() {
   if (!SONGS.length) { alert('Load songs first.'); return; }
   if (scanning) return;
@@ -832,7 +832,7 @@ async function startScan() {
     currentIndex = i;
     const song = SONGS[i];
     const pct = ((i+1)/TOTAL*100).toFixed(1);
-    document.getElementById('progressLabel').textContent = `"${song.title}" Ã¢ÂÂ ${song.artist}`;
+    document.getElementById('progressLabel').textContent = `"${song.title}" — ${song.artist}`;
     document.getElementById('progressPct').textContent = pct + '%';
     document.getElementById('progressFill').style.width = pct + '%';
     document.getElementById('statScanned').textContent = i + 1;
@@ -857,11 +857,11 @@ async function startScan() {
   if (!shouldStop) {
     currentIndex = TOTAL;
     const found = allResults.filter(r => r.hit).length;
-    document.getElementById('progressLabel').textContent = `Done Ã¢ÂÂ ${found} of ${TOTAL} songs have charts on Clone Hero`;
+    document.getElementById('progressLabel').textContent = `Done — ${found} of ${TOTAL} songs have charts on Clone Hero`;
     document.getElementById('progressPct').textContent = '100%';
     document.getElementById('progressFill').style.width = '100%';
   } else {
-    document.getElementById('progressLabel').textContent = 'Paused Ã¢ÂÂ press Start Scan to continue';
+    document.getElementById('progressLabel').textContent = 'Paused — press Start Scan to continue';
     document.getElementById('btnStart').disabled = false;
   }
 
@@ -875,7 +875,7 @@ function stopScan() {
   document.getElementById('btnStop').disabled = true;
 }
 
-// Ã¢ÂÂÃ¢ÂÂ RENDER Ã¢ÂÂÃ¢ÂÂ
+// -- RENDER --
 function setFilter(f, btn) {
   currentFilter = f;
   document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
@@ -893,7 +893,7 @@ function renderResults() {
   const el = document.getElementById('resultsList');
   if (!list.length && !allResults.length) return;
   if (!list.length) {
-    el.innerHTML = `<div class="empty"><div class="empty-icon">Ã°ÂÂÂ</div><h2>No matches</h2><p>Try changing your filter or search term.</p></div>`;
+    el.innerHTML = `<div class="empty"><div class="empty-icon">&#128269;</div><h2>No matches</h2><p>Try changing your filter or search term.</p></div>`;
     return;
   }
 
@@ -906,22 +906,22 @@ function renderResults() {
     const link = id ? `https://enchor.us/chart/${id}` : `https://enchor.us/?query=${encodeURIComponent(r.title + ' ' + r.artist)}`;
     if (r.hit) return `
       <div class="result-row hit">
-        <div class="result-icon hit">Ã¢ÂÂ</div>
+        <div class="result-icon hit">&#10003;</div>
         <div class="result-spotify">
           <div class="result-title">${esc(r.title)}</div>
           <div class="result-artist">${esc(r.artist)}</div>
         </div>
-        <div class="result-arrow">Ã¢ÂÂ</div>
+        <div class="result-arrow">&#8594;</div>
         <div class="result-chart">
           <div class="result-chart-title">${esc(ct || r.title)}</div>
           <div class="result-chart-artist">${esc(ca || r.artist)}</div>
-          <div class="result-chart-meta">${ch ? 'Ã°ÂÂÂ¸ ' + esc(ch) : ''}${r.count > 1 ? (ch ? ' ÃÂ· ' : '') + r.count + ' versions' : ''}</div>
+          <div class="result-chart-meta">${ch ? '&#127928; ' + esc(ch) : ''}${r.count > 1 ? (ch ? ' &middot; ' : '') + r.count + ' versions' : ''}</div>
         </div>
-        <a class="result-link" href="${link}" target="_blank">View Ã¢ÂÂ</a>
+        <a class="result-link" href="${link}" target="_blank">View &#8594;</a>
       </div>`;
     return `
       <div class="result-row miss">
-        <div class="result-icon miss">Ã¢ÂÂ</div>
+        <div class="result-icon miss">&#10007;</div>
         <div class="result-spotify">
           <div class="result-title">${esc(r.title)}</div>
           <div class="result-artist">${esc(r.artist)}</div>
@@ -931,7 +931,7 @@ function renderResults() {
   }).join('')}</div>`;
 }
 
-// Ã¢ÂÂÃ¢ÂÂ EXPORT Ã¢ÂÂÃ¢ÂÂ
+// -- EXPORT --
 function exportCSV() {
   const hits = allResults.filter(r => r.hit);
   if (!hits.length) { alert('No matches to export yet.'); return; }
@@ -947,12 +947,12 @@ function exportCSV() {
   a.click();
 }
 
-// Ã¢ÂÂÃ¢ÂÂ UTILS Ã¢ÂÂÃ¢ÂÂ
+// -- UTILS --
 function esc(s) {
   return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// Ã¢ÂÂÃ¢ÂÂ INIT Ã¢ÂÂÃ¢ÂÂ
+// -- INIT --
 window.addEventListener('load', handleCallback);
 </script>
 </body>
