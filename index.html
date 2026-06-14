@@ -902,8 +902,8 @@ function renderResults() {
     const ct = m ? (m.name || m.songName || m.song || m.title || '') : '';
     const ca = m ? (m.artist || m.artistName || m.band || '') : '';
     const ch = m ? (m.charter || m.charters?.[0]?.name || '') : '';
-    const id = m ? (m.chartId || '') : '';
-    const link = id ? `https://enchor.us/chart/${id}` : `https://enchor.us/?query=${encodeURIComponent(r.title + ' ' + r.artist)}`;
+    const hash = m ? (m.chartHash || '') : '';
+    const link = hash ? `https://enchor.us/chart/${encodeURIComponent(hash)}` : `https://enchor.us/?query=${encodeURIComponent(r.title + ' ' + r.artist)}`;
     if (r.hit) return `
       <div class="result-row hit">
         <div class="result-icon hit">&#10003;</div>
@@ -939,7 +939,7 @@ function exportCSV() {
   hits.forEach(r => {
     const m = r.match;
     const e = s => `"${(s||'').replace(/"/g,'""')}"`;
-    rows.push([e(r.title), e(r.artist), e(m.name||m.songName||''), e(m.artist||m.artistName||''), e(m.charter||''), r.count, `https://enchor.us/chart/${m.chartId||''}`]);
+    rows.push([e(r.title), e(r.artist), e(m.name||m.songName||''), e(m.artist||m.artistName||''), e(m.charter||''), r.count, `https://enchor.us/chart/${encodeURIComponent(m.chartHash||'')}`]);
   });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([rows.map(r=>r.join(',')).join('\n')], {type:'text/csv'}));
